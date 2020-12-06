@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
   res.render("user", { users: data.userList, id: "" });
 });
 
-router.get("/:id", (req, res) => {
+router.use("/:id", (req, res) => {
   res.render("user", { users: data.userList, id: req.params.id });
 });
 

@@ -1,15 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
+const data = require("../models/data");
+
 router.get("/", (req, res) => {
-  res.render("main", { name: req.query.name });
+  res.render("user", { users: data.userList, id: "" });
 });
 
-router.post("/", (req, res) => {
-  res.send("post");
+router.get("/:id", (req, res) => {
+  res.render("user", { users: data.userList, id: req.params.id });
+  console.log(req.params.id)
 });
 
 module.exports = router;
+
 
 // exports.getMain = (req, res) => {
 //   console.log("Get request to /");
